@@ -122,31 +122,31 @@ ratatui-ptk covers the input line of prompt_toolkit's `prompt()`, not its full-s
 | prompt_toolkit feature | ratatui-ptk | Notes |
 |---|---|---|
 | Multi-line input | ✅ | `with_accept` decides when Enter submits |
-| Prompt continuation | 🔶 | Continuation lines are indented to the prompt width; no custom text |
-| Long lines | 🔶 | Scroll horizontally; no soft wrap |
+| Prompt continuation | 🔶 | Continuation lines are indented to the prompt width; no custom text; [#10](https://github.com/sei40kr/ratatui-ptk/issues/10) |
+| Long lines | 🔶 | Scroll horizontally; no soft wrap; [#2](https://github.com/sei40kr/ratatui-ptk/issues/2) |
 | Emacs key bindings | ✅ | |
-| Vi key bindings | ❌ | |
-| Custom key bindings | 🔶 | Keys bind to built-in `Command`s only; no user handlers |
+| Vi key bindings | ❌ | [#3](https://github.com/sei40kr/ratatui-ptk/issues/3) |
+| Custom key bindings | 🔶 | Keys bind to built-in `Command`s only; no user handlers; [#4](https://github.com/sei40kr/ratatui-ptk/issues/4) |
 | Undo / redo | ✅ | |
-| Kill ring | 🔶 | Holds the last kill; no `M-y` yank-pop |
-| Selection (`C-Space` region) | ❌ | |
-| System clipboard | ❌ | |
+| Kill ring | 🔶 | Holds the last kill; no `M-y` yank-pop; [#5](https://github.com/sei40kr/ratatui-ptk/issues/5) |
+| Selection (`C-Space` region) | ❌ | [#6](https://github.com/sei40kr/ratatui-ptk/issues/6) |
+| System clipboard | ❌ | [#7](https://github.com/sei40kr/ratatui-ptk/issues/7) |
 | Bracketed paste | ❌ | Handle `Event::Paste` yourself |
 | In-memory and file history | ✅ | The file format differs from prompt_toolkit's |
 | Up / Down history navigation | ✅ | |
 | Reverse incremental search (`C-r`) | ✅ | |
-| Forward incremental search (`C-s`) | ❌ | |
+| Forward incremental search (`C-s`) | ❌ | [#8](https://github.com/sei40kr/ratatui-ptk/issues/8) |
 | Auto-suggestion from history | ✅ | Accept with Right, `C-e` or `C-f` |
 | Completion menu | ✅ | Single column with meta text |
-| Multi-column completion menu | ❌ | |
+| Multi-column completion menu | ❌ | [#9](https://github.com/sei40kr/ratatui-ptk/issues/9) |
 | Complete while typing | ✅ | |
 | Threaded completion | ✅ | `complete_in_thread` |
-| Fuzzy completion | ❌ | Implement it in your `Completer` |
+| Fuzzy completion | ❌ | Implement it in your `Completer`; [#12](https://github.com/sei40kr/ratatui-ptk/issues/12) |
 | Syntax highlighting | ✅ | Through your `Lexer`, not Pygments |
-| Input validation | 🔶 | Only `with_accept`; no error message |
-| Password input | ❌ | |
+| Input validation | 🔶 | Only `with_accept`; no error message; [#11](https://github.com/sei40kr/ratatui-ptk/issues/11) |
+| Password input | ❌ | [#1](https://github.com/sei40kr/ratatui-ptk/issues/1) |
 | Right prompt, bottom toolbar | ❌ | Draw them with ratatui |
-| Mouse support | ❌ | |
+| Mouse support | ❌ | [#13](https://github.com/sei40kr/ratatui-ptk/issues/13) |
 | Full-screen layouts, dialogs | ❌ | Out of scope; use ratatui |
 
 ## License
