@@ -1,0 +1,15 @@
+---
+source: src/tests.rs
+expression: buf
+---
+Buffer {
+    area: Rect { x: 0, y: 0, width: 10, height: 1 },
+    content: [
+        "> sel x   ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: Red, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 0, fg: Blue, bg: Reset, underline: Reset, modifier: NONE,
+        x: 5, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}

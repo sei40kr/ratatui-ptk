@@ -1,0 +1,18 @@
+---
+source: src/tests.rs
+expression: buf
+---
+Buffer {
+    area: Rect { x: 0, y: 0, width: 20, height: 3 },
+    content: [
+        " sequence kw        ",
+        " set      kw        ",
+        "                    ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: White, bg: DarkGray, underline: Reset, modifier: NONE,
+        x: 13, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 0, y: 1, fg: Black, bg: Gray, underline: Reset, modifier: NONE,
+        x: 13, y: 1, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}

@@ -12,6 +12,7 @@ mkShell {
     cargo
     rustc
     clippy
+    cargo-insta
     rustfmt
     rust-analyzer
     mold

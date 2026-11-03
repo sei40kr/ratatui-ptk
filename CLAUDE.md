@@ -45,3 +45,4 @@ nix flake check
 ## Testing
 
 Plain unit tests in `src/tests.rs`. They drive `PromptState` with key events and check the text, the `Outcome`, or the screen rendered into a `Buffer`.
+Rendered screens are insta snapshots in `src/snapshots/` (the `Buffer`'s Debug output, styles included); review changes with `cargo insta review`.

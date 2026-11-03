@@ -107,7 +107,7 @@ fn suggestion_is_shown_and_accepted() {
     p.handle_key(key(KeyCode::Enter, KeyModifiers::NONE));
     type_str(&mut p, "sel");
     assert_eq!(p.suggestion(), Some("ect 1;"));
-    assert_eq!(lines(&render(&mut p, 20, 1)), ["> select 1;         "]);
+    insta::assert_debug_snapshot!(render(&mut p, 20, 1));
     p.handle_key(key(KeyCode::Char('e'), KeyModifiers::CONTROL));
     assert_eq!(p.buffer().text(), "select 1;");
 }
@@ -122,10 +122,7 @@ fn reverse_search_loads_match_into_buffer() {
     p.handle_key(key(KeyCode::Char('r'), KeyModifiers::CONTROL));
     type_str(&mut p, "sel");
     p.handle_key(key(KeyCode::Char('r'), KeyModifiers::CONTROL));
-    assert_eq!(
-        lines(&render(&mut p, 40, 1)),
-        ["(reverse-i-search)`sel': select a;      "]
-    );
+    insta::assert_debug_snapshot!(render(&mut p, 40, 1));
     p.handle_key(key(KeyCode::Enter, KeyModifiers::NONE));
     assert_eq!(p.buffer().text(), "select a;");
 }
@@ -137,15 +134,7 @@ fn selecting_a_candidate_previews_it_and_escape_restores() {
     p.handle_key(key(KeyCode::Tab, KeyModifiers::NONE));
     p.handle_key(key(KeyCode::Tab, KeyModifiers::NONE));
     assert_eq!(p.buffer().text(), "x sequence");
-    assert_eq!(
-        lines(&render(&mut p, 20, 4)),
-        [
-            "    select   kw     ",
-            "    sequence kw     ",
-            "    set      kw     ",
-            "> x sequence        ",
-        ]
-    );
+    insta::assert_debug_snapshot!(render(&mut p, 20, 4));
     p.handle_key(key(KeyCode::Esc, KeyModifiers::NONE));
     assert_eq!(p.buffer().text(), "x se");
     assert_eq!(p.completions(), None);
@@ -172,15 +161,7 @@ fn enter_keeps_the_previewed_candidate_and_undo_restores_the_typed_text() {
 fn menu_follows_typing_without_stealing_enter() {
     let mut p = PromptState::new().with_completer(Words);
     type_str(&mut p, "se");
-    assert_eq!(
-        lines(&render(&mut p, 20, 4)),
-        [
-            "  select   kw       ",
-            "  sequence kw       ",
-            "  set      kw       ",
-            "> se                ",
-        ]
-    );
+    insta::assert_debug_snapshot!(render(&mut p, 20, 4));
     type_str(&mut p, "l");
     assert_eq!(lines(&render(&mut p, 20, 2))[0], "  select kw         ");
     type_str(&mut p, "ect");
@@ -213,10 +194,7 @@ fn menu_scrolls_to_keep_the_selection_visible() {
     let menu = CompletionMenu::new().max_height(2);
     let area = menu.area(&p, Position::new(3, 2), screen).unwrap();
     menu.render(area, &mut buf, &mut p);
-    assert_eq!(
-        lines(&buf)[..2],
-        [" sequence kw        ", " set      kw        "]
-    );
+    insta::assert_debug_snapshot!(buf);
 }
 
 #[test]
@@ -238,9 +216,7 @@ fn styles_come_from_the_caller() {
         .prompt_style(Style::new().fg(Color::Red))
         .syntax(&syntax)
         .render(buf.area, &mut buf, &mut p);
-    assert_eq!(buf[(0, 0)].fg, Color::Red);
-    assert_eq!(buf[(2, 0)].fg, Color::Blue);
-    assert_eq!(buf[(6, 0)].fg, Color::Reset);
+    insta::assert_debug_snapshot!(buf);
 }
 
 #[test]

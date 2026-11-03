@@ -1,0 +1,14 @@
+---
+source: src/tests.rs
+expression: "render(&mut p, 40, 1)"
+---
+Buffer {
+    area: Rect { x: 0, y: 0, width: 40, height: 1 },
+    content: [
+        "(reverse-i-search)`sel': select a;      ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 25, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}

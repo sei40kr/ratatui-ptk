@@ -1,0 +1,16 @@
+---
+source: src/tests.rs
+expression: "render(&mut p, 20, 1)"
+---
+Buffer {
+    area: Rect { x: 0, y: 0, width: 20, height: 1 },
+    content: [
+        "> select 1;         ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 2, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 5, y: 0, fg: DarkGray, bg: Reset, underline: Reset, modifier: NONE,
+        x: 11, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}
