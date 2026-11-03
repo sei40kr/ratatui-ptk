@@ -3,6 +3,11 @@ name = "ratatui-ptk"
 version = "0.1.0"
 edition = "2024"
 license = "MIT"
+description = "prompt_toolkit-style input line for ratatui: multi-line editing, history, completion and highlighting"
+repository = "https://github.com/sei40kr/ratatui-ptk"
+readme = "README.md"
+keywords = ["ratatui", "tui", "prompt", "readline", "line-editor"]
+categories = ["command-line-interface", "text-editors"]
 
 [dependencies]
 ratatui = "0.30.2"
