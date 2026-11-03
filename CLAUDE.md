@@ -2,7 +2,7 @@
 
 A prompt_toolkit-style input line for ratatui: multi-line editing, history, completion and highlighting.
 It renders into a ratatui `Buffer` and leaves the terminal and the event loop to the caller.
-It was split out of [oracli](https://github.com/sei40kr/oracli), its main user, but knows nothing about SQL; anything language-specific plugs in through the `Completer` and `Lexer` traits.
+It knows nothing about any input language; anything language-specific plugs in through the `Completer` and `Lexer` traits.
 
 ## Architecture
 
