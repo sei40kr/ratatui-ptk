@@ -115,6 +115,40 @@ let prompt = Prompt::new("> ").syntax(&syntax);
 
 Only an Emacs set ships, from `KeyBindings::emacs`. `PromptState::bindings_mut` lets you bind more keys to the built-in `Command`s.
 
+## Compared to prompt_toolkit
+
+ratatui-ptk covers the input line of prompt_toolkit's `prompt()`, not its full-screen application framework; ratatui already does layout. ✅ supported, 🔶 partly, ❌ not yet.
+
+| prompt_toolkit feature | ratatui-ptk | Notes |
+|---|---|---|
+| Multi-line input | ✅ | `with_accept` decides when Enter submits |
+| Prompt continuation | 🔶 | Continuation lines are indented to the prompt width; no custom text |
+| Long lines | 🔶 | Scroll horizontally; no soft wrap |
+| Emacs key bindings | ✅ | |
+| Vi key bindings | ❌ | |
+| Custom key bindings | 🔶 | Keys bind to built-in `Command`s only; no user handlers |
+| Undo / redo | ✅ | |
+| Kill ring | 🔶 | Holds the last kill; no `M-y` yank-pop |
+| Selection (`C-Space` region) | ❌ | |
+| System clipboard | ❌ | |
+| Bracketed paste | ❌ | Handle `Event::Paste` yourself |
+| In-memory and file history | ✅ | The file format differs from prompt_toolkit's |
+| Up / Down history navigation | ✅ | |
+| Reverse incremental search (`C-r`) | ✅ | |
+| Forward incremental search (`C-s`) | ❌ | |
+| Auto-suggestion from history | ✅ | Accept with Right, `C-e` or `C-f` |
+| Completion menu | ✅ | Single column with meta text |
+| Multi-column completion menu | ❌ | |
+| Complete while typing | ✅ | |
+| Threaded completion | ✅ | `complete_in_thread` |
+| Fuzzy completion | ❌ | Implement it in your `Completer` |
+| Syntax highlighting | ✅ | Through your `Lexer`, not Pygments |
+| Input validation | 🔶 | Only `with_accept`; no error message |
+| Password input | ❌ | |
+| Right prompt, bottom toolbar | ❌ | Draw them with ratatui |
+| Mouse support | ❌ | |
+| Full-screen layouts, dialogs | ❌ | Out of scope; use ratatui |
+
 ## License
 
 [MIT](LICENSE)
